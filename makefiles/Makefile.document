@@ -1,0 +1,24 @@
+## A perl function which allows Makefile targets to be self-documentating, sorted groups and target names alphabetically
+HELP_FUNC = \
+	%help; \
+	while(<>) { \
+		if(/^([a-z0-9_-]+):.*\#\#(?:@(\w+))?\s(.*)$$/) { \
+			push(@{$$help{$$2}}, [$$1, $$3]); \
+		} \
+	}; \
+	print "usage: make [target]\n\n"; \
+	for ( sort keys %help ) { \
+		print "$$_:\n"; \
+		@sorted_targets = sort { lc($$a->[0]) cmp lc($$b->[0]) } @{$$help{$$_}}; \
+		printf("  %-25s %s\n", $$_->[0], $$_->[1]) for @sorted_targets; \
+		print "\n"; \
+	} \
+
+help: ##@Miscellaneous Show this help.
+  @perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
+
+setup-python: ##@Setup sets up python
+  @pipenv shell
+
+setup-go: ##@Setup sets up Go
+  @go mod init
