@@ -1,3 +1,10 @@
+CURRENT_DIR := $(shell pwd)
+red=$(shell tput setaf 1)
+green=$(shell tput setaf 2)
+yellow=$(shell tput setaf 3)
+reset=$(shell tput sgr0)
+bold=$(shell tput bold)
+
 ## A perl function which allows Makefile targets to be self-documentating, sorted groups and target names alphabetically
 HELP_FUNC = \
 	%help; \
@@ -22,3 +29,7 @@ setup-python: ##@Setup sets up python
 
 setup-go: ##@Setup sets up Go
   @go mod init
+
+# the following export environment variables from .env file
+include .env
+export
