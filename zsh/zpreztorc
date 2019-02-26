@@ -1,0 +1,17 @@
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'git' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'contrib-prompt' \
+  'prompt'
+
+zstyle ':prezto:module:autosuggestions' color 'yes'
+zstyle ':prezto:module:prompt' theme 'spaceship'
