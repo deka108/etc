@@ -3,8 +3,11 @@
 [sdkman](https://github.com/jenv/jenv)
 
 #### Installation and Setup
-```curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"```
+```
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+
 
 #### Installing Java
 `sdk install java`
