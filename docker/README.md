@@ -1,5 +1,6 @@
 
 ## Run docker image
+```
 docker run --rm --name ${APP_NAME} \
   v $(CURRENT_DIR)/data:/app/data \
 		-v $(APP_CONFIG):/etc/app/config/${APP_NAME}_config.yaml \
@@ -9,6 +10,7 @@ docker run --rm --name ${APP_NAME} \
 		-e GOOGLE_APPLICATION_CREDENTIALS=/etc/secrets/google/key.json \
 		-p 0.0.0.0:${DEFAULT_DOCKER_PORT}:8080 \
 		${APP_NAME}:local
+```
 
 ## Stop docker container
 ```
