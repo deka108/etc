@@ -50,5 +50,6 @@ Selected Fonts:
 Visit [this page](https://github.com/Homebrew/homebrew-cask-fonts) to check for the available fonts
 
 ```
-brew tap caskroom/fonts && brew cask install font-fira-mono-for-powerline
+brew tap caskroom/fonts # once only
+brew cask install font-fira-mono-for-powerline
 ```
