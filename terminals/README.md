@@ -39,7 +39,7 @@ Light Themes:
 [Powerline fonts](https://github.com/powerline/fonts)
 
 #### List of Available Fonts
-https://github.com/powerline/fonts/blob/master/samples/All.md)
+https://github.com/powerline/fonts/blob/master/samples/All.md
 
 Selected Fonts:
 - Fira

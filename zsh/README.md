@@ -1,5 +1,9 @@
+# ZSH
+
 ## Configurations Framework
-Choice: [Prezto](https://github.com/sorin-ionescu/prezto)
+
+Preferred Tool: [Prezto](https://github.com/sorin-ionescu/prezto)
 
 ## Theming
-Choice: [Spaceship Prompt](https://github.com/denysdovhan/spaceship-prompt)
+
+Preferred Theme: [Spaceship Prompt](https://github.com/denysdovhan/spaceship-prompt). Yes I'd like to be an astronout plz
