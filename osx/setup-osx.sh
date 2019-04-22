@@ -90,6 +90,9 @@ brew cask install rstudio
 # go
 brew install golang
 
+# protobuf
+brew install protobuf
+
 ######################################
 ### deployment tools               ###
 ######################################
