@@ -42,6 +42,8 @@ brew install vim
 
 # git
 brew install git
+git config --global core.editor "vim"
+git config --global --edit # change user
 
 # zsh
 brew install zsh
@@ -104,6 +106,7 @@ pip3 install awscli --upgrade --user
 # gcloud
 curl https://sdk.cloud.google.com | bash
 gloud components install kubectl
+gcloud auth login
 
 ######################################
 ### scientific                     ###
