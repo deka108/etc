@@ -90,6 +90,7 @@ brew cask install rstudio
 # go
 brew install golang
 export PATH=$PATH:/usr/local/go/bin
+# setup things, GOPATH, GOROOT, PATH: https://gist.github.com/vsouza/77e6b20520d07652ed7d
 
 # protobuf
 brew install protobuf
