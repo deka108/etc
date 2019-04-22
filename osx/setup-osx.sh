@@ -175,4 +175,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ### worthy references              ###
 ######################################
 
+# Add to zshrc
+
+# export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
 # http://sourabhbajaj.com/mac-setup/
