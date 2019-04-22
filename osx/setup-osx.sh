@@ -89,6 +89,7 @@ brew cask install rstudio
 
 # go
 brew install golang
+export PATH=$PATH:/usr/local/go/bin
 
 # protobuf
 brew install protobuf
