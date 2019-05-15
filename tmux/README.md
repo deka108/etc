@@ -1,4 +1,6 @@
 # tmux
 Terminal multiplexer
 
-Copy .tmux.conf to ~/.tmux.conf
+### Configuring Tmux
+
+Copy `.tmux.conf` to `~/.tmux.conf`
