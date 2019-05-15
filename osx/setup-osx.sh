@@ -1,11 +1,25 @@
 #!/usr/bin/env bash
 
+# Change Macbook Password
+# https://support.apple.com/en-hk/HT202860
+# Change to Dark Mode
+# http://osxdaily.com/2018/10/12/how-enable-dark-mode-theme-macos/
+
 ######################################
 ### constants and definitions      ###
 ######################################
 
 PY3_VERSION=3.7.3
 PY2_VERSION=2.7.16
+
+
+# Add to zshrc
+cat <<EOT >> ~/.zshrc
+
+# String Encoding and Locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+EOT
 
 ######################################
 ### the basics                     ###
@@ -18,6 +32,10 @@ xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap caskroom/cask
 brew cask
+
+brew install zlib
+brew install sqlite
+brew install cmake
 
 ######################################
 ### install prerequisite softwares ###
@@ -45,9 +63,25 @@ brew install git
 git config --global core.editor "vim"
 # git config --global user.email "USEREMAIL"
 git config --global --edit # change user
+brew install bfg 
 
 # zsh
 brew install zsh
+exec $SHELL
+chsh -s $(which zsh)
+
+cat <<EOT >> ~/.zshrc
+# For compilers to find zlib you may need to set:
+export LDFLAGS="\${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="\${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export LDFLAGS="\${LDFLAGS} -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="\${CPPFLAGS} -I/usr/local/opt/sqlite/include"
+
+# For pkg-config to find zlib you may need to set:
+export PKG_CONFIG_PATH="\${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="\${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="\${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+EOT
 
 ######################################
 ### programming languages          ###
@@ -56,7 +90,12 @@ brew install zsh
 # python
 brew install pyenv
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshenv
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshenv
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshenv
+
 exec "$SHELL"
 pyenv install ${PY3_VERSION}
 pyenv install ${PY2_VERSION}
@@ -73,24 +112,37 @@ sdk install maven
 
 # nodejs: nvm, yarn 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+cat <<EOT >> ~/.zshrc
+
+# Setup NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+EOT
 
 nvm install stable
 
 # ruby
 brew install gnupg
-gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-\curl -L https://get.rvm.io | bash -s stable --ruby --rails --autolibs=enable
+command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
+curl -L https://get.rvm.io | bash -s stable --ruby --rails --autolibs=enable
 
 # r
-brew install r
+brew cask install r
 brew cask install rstudio
 
 # go
 brew install golang
-export PATH=$PATH:/usr/local/go/bin
+cat <<EOT >> ~/.zshrc
+
+# Setup GoLang
+export PATH="\$PATH:/usr/local/go/bin"
+export GOPATH="\$HOME/golang"
+export GOROOT="/usr/local/opt/go/libexec"
+export PATH="\$PATH:\$GOPATH/bin"
+export PATH="\$PATH:\$GOROOT/bin"
+EOT
 # setup things, GOPATH, GOROOT, PATH: https://gist.github.com/vsouza/77e6b20520d07652ed7d
 
 # parsers
@@ -143,8 +195,18 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
+# Theming: https://github.com/deka108/etc/blob/master/terminals/README.md
+
 # add the following to zshrc
-# source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+cat <<EOT >> ~/.zshrc
+
+# Setup prezto
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+EOT
+
+# prezto plugins
+# Visit https://github.com/deka108/etc/blob/master/zsh/
+# Visit https://github.com/denysdovhan/spaceship-prompt
 
 # fonts
 brew tap homebrew/cask-fonts 
@@ -163,21 +225,14 @@ brew install tmux
 # tmux plugin: https://github.com/tmux-plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# https://github.com/deka108/etc/blob/master/tmux/
+# Configuring: https://github.com/deka108/etc/blob/master/tmux/
 
 # vim plugins: https://github.com/junegunn/vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-
-# prezto plugins
-
 ######################################
 ### worthy references              ###
 ######################################
 
-# Add to zshrc
-
-# export LC_ALL=en_US.UTF-8
-# export LANG=en_US.UTF-8
 # http://sourabhbajaj.com/mac-setup/
