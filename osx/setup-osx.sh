@@ -43,6 +43,7 @@ brew install vim
 # git
 brew install git
 git config --global core.editor "vim"
+# git config --global user.email "USEREMAIL"
 git config --global --edit # change user
 
 # zsh
