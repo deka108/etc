@@ -10,3 +10,11 @@
 
 **How to Install**:
 https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+
+## Fixes
+
+### YouCompleteMe
+```bash
+cd .vim/bundle/YouCompleteMe
+/usr/bin/python ./install.py
+```
