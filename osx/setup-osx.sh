@@ -230,6 +230,17 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # vim plugins: https://github.com/junegunn/vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
+######################################
+### others                         ###
+######################################
+brew cask install spotify
+brew cask install vlc
+brew cask install gettext
+
+# screensaver
+# https://trends.google.com/trends/hottrends/visualize
+# http://osxdaily.com/2014/07/10/set-screen-saver-keyboard-shortcut-mac/
 
 ######################################
 ### worthy references              ###
