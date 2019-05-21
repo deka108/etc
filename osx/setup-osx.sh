@@ -210,6 +210,9 @@ EOT
 
 # fonts
 brew tap homebrew/cask-fonts 
+# Find powerline fonts here: https://github.com/Homebrew/homebrew-cask-fonts
+# Configure default fonts on iterm2
+
 brew cask install font-inconsolata
 
 # colors and theming: 
