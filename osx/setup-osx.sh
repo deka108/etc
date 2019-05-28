@@ -150,6 +150,10 @@ brew install yq
 brew install jq
 brew install protobuf
 
+# sql
+brew install mysql
+brew install postgresql
+
 ######################################
 ### deployment tools               ###
 ######################################
