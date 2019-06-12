@@ -255,5 +255,9 @@ brew cask install gettext
 
 # http://sourabhbajaj.com/mac-setup/
 
+cat <<EOT >> ~/.zshrc
+
 # Setup airflow
-# export AIRFLOW_HOME=~/airflow
+export AIRFLOW_HOME=~/airflow
+EOT
+
