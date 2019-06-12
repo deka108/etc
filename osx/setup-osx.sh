@@ -254,3 +254,6 @@ brew cask install gettext
 ######################################
 
 # http://sourabhbajaj.com/mac-setup/
+
+# Setup airflow
+# export AIRFLOW_HOME=~/airflow
