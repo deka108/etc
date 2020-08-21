@@ -21,6 +21,19 @@ Generate SSH Key and Adding to GitHub: https://help.github.com/en/articles/gener
 **References:**
 - https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs?answertab=votes#tab-top
 
+### Git Config
+https://gist.github.com/pksunkara/988716
+
+### Advanced Git
+https://www.atlassian.com/git/tutorials/advanced-overview
+
+### Git Diff
+https://stackoverflow.com/questions/3713765/viewing-all-git-diffs-with-vimdiff
+Vimdiff: https://vim.rtorr.com/
+
+### Working with Remote
+https://stackoverflow.com/questions/3471827/how-do-i-list-all-remote-branches-in-git-1-7
+
 ### .gitignore
 
 #### Choice
