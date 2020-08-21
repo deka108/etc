@@ -8,6 +8,9 @@
 ### History
 
 ### fuzzy search
+```
+fzf
+```
 
 ### Jumping directories
 ```
