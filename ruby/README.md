@@ -34,8 +34,12 @@ brew install ruby-build
 gem update --system
 ```
 
-## Installing Jekyll
+## Installing and Using Jekyll
 
 ```bash
+# installing jekyll
 gem install jekyll bundler
+
+# using jekyll
+bundle exec jekyll serve
 ```
