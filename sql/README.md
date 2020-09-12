@@ -2,6 +2,22 @@
 
 ## PostGreSQL
 
+### Preferred Approach
+
+Use Docker and PGAdmin4
+
+```bash
+# pulling an image
+docker pull dpage/pgadmin4
+
+# run as container
+docker run -p $HOST_PORT:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=$ADMIN_EMAIL' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=$SECRET' \
+    --name pgadmin \
+    -d dpage/pgadmin4
+```
+
 How to Install: `brew install postgresql`
 
 Setup: follow [this instruction](https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3).
