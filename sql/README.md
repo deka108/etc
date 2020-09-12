@@ -27,7 +27,19 @@ How to Install: `brew install postgresql`
 
 Setup: follow [this instruction](https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3).
 
-## MySQL
+## SQLite
+
+### Preferred Way: Docker
+
+```bash
+docker run -it --rm \
+    -p 8080:8080 \
+    -v $(pwd)/tmpdb/:/data \
+    -e SQLITE_DATABASE=db_hello.db \
+    coleifer/sqlite-web
+```
+
+<!--## MySQL
 
 How to Install: `brew install mysql`
 
@@ -37,4 +49,4 @@ How to Install: `brew install mysql`
 
 Tool: [SequelPro](http://www.sequelpro.com/)
 
-How to Install: `brew cask install sequel-pro`
+How to Install: `brew cask install sequel-pro`-->
