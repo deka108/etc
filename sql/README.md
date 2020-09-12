@@ -2,9 +2,14 @@
 
 ## PostGreSQL
 
-### Preferred Approach
+### Preferred Approach: Docker Compose
 
-Use Docker and PGAdmin4
+See `docker-compose.yml` and https://github.com/khezen/compose-postgres
+
+Run `docker compose up -d`
+
+### Old ways
+Using Docker and PGAdmin4
 
 ```bash
 # pulling an image
