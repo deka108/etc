@@ -71,17 +71,31 @@ exec $SHELL
 chsh -s $(which zsh)
 
 cat <<EOT >> ~/.zshrc
+
 # For compilers to find zlib you may need to set:
-export LDFLAGS="\${LDFLAGS} -L/usr/local/opt/zlib/lib"
-export CPPFLAGS="\${CPPFLAGS} -I/usr/local/opt/zlib/include"
-export LDFLAGS="\${LDFLAGS} -L/usr/local/opt/sqlite/lib"
-export CPPFLAGS="\${CPPFLAGS} -I/usr/local/opt/sqlite/include"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/ruby/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl@1.1/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/sqlite/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/ncurses/lib"
+
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/ruby/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl@1.1/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/sqlite/include"
 
 # For pkg-config to find zlib you may need to set:
-export PKG_CONFIG_PATH="\${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
-export PKG_CONFIG_PATH="\${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
-export PKG_CONFIG_PATH="\${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
 EOT
+
+# fzf
+brew install fzf
+
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
 
 ######################################
 ### programming languages          ###
@@ -111,7 +125,8 @@ sdk install gradle
 sdk install maven 
 
 # nodejs: nvm, yarn 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+# check yarn version: https://github.com/nvm-sh/nvm#install--update-script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/latest/install.sh | bash
 cat <<EOT >> ~/.zshrc
 
 # Setup NVM
