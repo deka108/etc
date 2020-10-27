@@ -12,6 +12,7 @@ How to Install: `brew install pyenv`
 
 ## Dependency Management
 
+### Project
 Preferred Tool: [pipenv](https://github.com/pypa/pipenv)
 
 How to Install: `pip install pipenv` (so that I can change pipenv versions easily)
@@ -21,11 +22,12 @@ Notes:
 - For packages that is installed globally, use `pip`
 - For packages that are installed local to a project, use `pipenv`
 
-### Debugging failed installations in Pipenv
+#### Debugging failed installations in Pipenv
 
 https://pipenv.readthedocs.io/en/latest/diagnose/
 
-```pipenv --rm # Deletes the virtualenv
+```
+pipenv --rm # Deletes the virtualenv
 pipenv lock --clear # Removes cache
 pipenv clean # Clean unused packages
 
@@ -34,9 +36,15 @@ rm -rf ~/.cache/pipenv
 rm Pipfile.lock
 ```
 
+### Global
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
+bash ~/miniconda.sh -b -p $HOME/miniconda
+```
+
 ## IDE
 
-Preferred ATool: [PyCharm](https://www.jetbrains.com/pycharm/)
+Preferred Tool: [PyCharm](https://www.jetbrains.com/pycharm/)
 
 How to Install:
 
@@ -164,6 +172,9 @@ References:
 | Flask Testing | http://flask.pocoo.org/docs/1.0/testing/#the-testing-skeleton |
 | Creating flask extensions - useful for modularizing the APIs and testing | http://flask.pocoo.org/docs/1.0/extensiondev/ |
 | Scaling applications: using API namespaces or blueprints | https://flask-restplus.readthedocs.io/en/stable/scaling.html |
+
+### FastAPI
+https://github.com/tiangolo/fastapi
 
 ### WSGI HTTP Server
 
