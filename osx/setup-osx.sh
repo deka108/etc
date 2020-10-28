@@ -70,6 +70,10 @@ brew install zsh
 exec $SHELL
 chsh -s $(which zsh)
 
+# curl and libressl
+brew install curl
+brew install libressl
+
 cat <<EOT >> ~/.zshrc
 
 # For compilers to find zlib you may need to set:
@@ -78,15 +82,21 @@ export LDFLAGS="${LDFLAGS} -L/usr/local/opt/ruby/lib"
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl@1.1/lib"
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/sqlite/lib"
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/ncurses/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/curl/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/libressl/lib"
 
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/ruby/include"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl@1.1/include"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/sqlite/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/curl/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/libressl/include"
 
 # For pkg-config to find zlib you may need to set:
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/curl/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/libressl/lib/pkgconfig"
 
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 EOT
