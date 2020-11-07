@@ -6,7 +6,8 @@ Tools:
 - clang
 - cmake
 - make
-- gdb
+- gdb:
+  ```echo "set startup-with-shell off" >> ~/.gdbinit```
 
 How to Install: 
 ```bash
