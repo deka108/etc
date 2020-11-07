@@ -161,6 +161,13 @@ brew cask install rstudio
 brew install golang
 cat <<EOT >> ~/.zshrc
 
+# cpp
+brew install cmake
+brew install coreutils
+brew install doxygen
+brew install llvm
+brew install gdb
+
 # Setup GoLang
 export PATH="\$PATH:/usr/local/go/bin"
 export GOPATH="\$HOME/golang"
