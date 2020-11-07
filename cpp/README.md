@@ -2,9 +2,20 @@
 
 ## Build Systems and Process Management
 
-Tool: `cmake`
+Tools:
+- clang
+- cmake
+- make
+- gdb
 
-How to Install: `brew install cmake`
+How to Install: 
+```bash
+brew install cmake
+brew install coreutils
+brew install doxygen
+brew install llvm
+brew install gdb
+```
 
 ## Testing
 
