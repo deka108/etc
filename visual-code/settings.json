@@ -1,0 +1,11 @@
+{
+  // Controls the font family.
+  "editor.fontFamily": "Fira Mono for Powerline",
+  // Controls the font size.
+  "editor.fontSize": 13,
+  // control the terminal fonts
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontFamily": "Fira Mono for Powerline",
+  "terminal.integrated.fontSize": 13
+}
