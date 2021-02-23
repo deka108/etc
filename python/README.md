@@ -12,8 +12,9 @@ How to Install: `brew install pyenv`
 
 ## Dependency Management
 
-### Project
-Preferred Tool: [pipenv](https://github.com/pypa/pipenv)
+### Project (soon to be obsolete, thinking of upgrading to pipx + poetry)
+
+Preferred Tool: [pipenv](https://github.com/pypa/pipenv) 
 
 How to Install: `pip install pipenv` (so that I can change pipenv versions easily)
 
@@ -40,6 +41,10 @@ rm Pipfile.lock
 ```
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
 bash ~/miniconda.sh -b -p $HOME/miniconda
+
+# activate base
+source <path to conda>/bin/activate
+conda init [zsh]
 ```
 
 ## IDE
