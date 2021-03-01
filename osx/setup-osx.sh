@@ -223,6 +223,10 @@ brew cask install alfred
 ### prettify                       ###
 ######################################
 
+# Use starship
+# https://starship.rs/
+
+## DEPRECATED
 # prezto: https://github.com/sorin-ionescu/prezto
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
