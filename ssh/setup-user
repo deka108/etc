@@ -1,0 +1,13 @@
+## Creating new user
+```bash
+sudo useradd [username]
+
+# create user with home dir
+sudo useradd -m [username]
+
+# create user add to group
+sudo useradd -g users [username]
+```
+
+## Creating password
+`sudo passwd [username]`
