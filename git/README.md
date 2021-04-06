@@ -12,6 +12,20 @@ Generate SSH Key and Adding to GitHub: https://help.github.com/en/articles/gener
 
 ## Useful commands
 
+### My branches
+```
+# branches that are merged
+git branch --merged master
+
+# branches that aren't merged
+git branch --no-merged master
+```
+
+### Delete local and remote branches
+```
+while read in; do git push origin -d $in; git branch -D $in; done < delete-branch.txt
+```
+
 ### Pretty Print Git Log Tree
 
 ```git log --graph --oneline --decorate --all```
