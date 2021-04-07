@@ -1,0 +1,24 @@
+[core]
+	editor = vim
+  
+[user]
+	name = dekauliya
+	email = deka108@gmail.com
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[merge]
+	tool = vimdiff
+
+[alias]
+	dog = "log --decorate --oneline --graph"
