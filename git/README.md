@@ -12,6 +12,11 @@ Generate SSH Key and Adding to GitHub: https://help.github.com/en/articles/gener
 
 ## Useful commands
 
+### Commits created by me
+```
+git log --author="<$(git config user.email)>"
+```
+
 ### My branches
 ```
 # branches that are merged
