@@ -14,7 +14,7 @@ Generate SSH Key and Adding to GitHub: https://help.github.com/en/articles/gener
 
 ### Commits created by me
 ```
-git log --author="<$(git config user.email)>"
+git log --oneline --author="<$(git config user.email)>"
 ```
 
 ### My branches
@@ -26,9 +26,26 @@ git branch --merged master
 git branch --no-merged master
 ```
 
+### Find the first commit of the branch
+
+```
+// the commit where the branch is forked
+git merge-base --fork-point master HEAD
+
+// the start commit of the current branch 
+git log master..HEAD --oneline | tail -1
+```
+
 ### Delete local and remote branches
 ```
 while read in; do git push origin -d $in; git branch -D $in; done < delete-branch.txt
+```
+
+### Checkout to another user's branch
+```
+git remote add [user] [ssh fork]
+git checkout --track [user]/[branch]
+git pull [user] [branch]
 ```
 
 ### Pretty Print Git Log Tree
