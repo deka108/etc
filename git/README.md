@@ -12,10 +12,23 @@ Generate SSH Key and Adding to GitHub: https://help.github.com/en/articles/gener
 
 ## Useful commands
 
-### Commits created by me
+### Git logs
+
+Ref: https://stackoverflow.com/questions/462974/what-are-the-differences-between-double-dot-and-triple-dot-in-git-com
+
 ```
+# commits created by me
 git log --oneline --author="<$(git config user.email)>"
+
+# show all the commits that commit2 has that commit1 doesn't
+git log [commit1]..[commit2]
+
+# show all commits that (commit1 has that commit2 doesn't) and the commits that (commit2 has that commit1 doesn't)
+git log [commit1]...[commit2]
 ```
+
+![image](https://user-images.githubusercontent.com/7682712/114791692-e9c8d980-9d54-11eb-893f-f38268683a44.png)
+![image](https://user-images.githubusercontent.com/7682712/114791706-ed5c6080-9d54-11eb-901a-2010f3ee6e72.png)
 
 ### My branches
 ```
@@ -46,6 +59,41 @@ while read in; do git push origin -d $in; git branch -D $in; done < delete-branc
 git remote add [user] [ssh fork]
 git checkout --track [user]/[branch]
 git pull [user] [branch]
+```
+
+### Git Diff
+
+Ref: https://stackoverflow.com/questions/7251477/what-are-the-differences-between-double-dot-and-triple-dot-in-git-dif
+
+```
+# git diff without dots is the same as diffs with two dots
+git diff [branch]
+
+# diffs from commit1 to commit2
+git diff [commit1]..[commit2]
+
+# diffs between commit1 & commit2 starting from lowest common ancestor in both commits
+git diff [commit1]...[commit2]
+
+git diff [branch] -- "*.[ext]" "*[filename]"
+```
+![image](https://user-images.githubusercontent.com/7682712/114792106-b6d31580-9d55-11eb-9a5b-826f4db2b344.png)
+
+![image](https://user-images.githubusercontent.com/7682712/114792164-ce120300-9d55-11eb-8196-dcb7a9c381b8.png)
+
+
+### Patch and Apply
+```
+// create patch
+git diff [branch] ... > [filename].patch
+
+// apply patch
+git apply [filename].patch
+```
+
+### Merge squash
+```
+git merge --squash [branch]
 ```
 
 ### Pretty Print Git Log Tree
