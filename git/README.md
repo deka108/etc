@@ -89,6 +89,9 @@ git diff [branch] ... > [filename].patch
 
 // apply patch
 git apply [filename].patch
+
+// if the above fails
+patch -p1 < [filename].patch
 ```
 
 ### Merge squash
