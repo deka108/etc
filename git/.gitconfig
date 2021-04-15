@@ -22,3 +22,7 @@
 
 [alias]
 	dog = "log --decorate --oneline --graph"
+	l = "log --decorate --oneline"
+	rb = "rebase"
+	fl = "reflog"
+	rst = "reset --hard HEAD"
