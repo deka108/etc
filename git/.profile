@@ -8,3 +8,7 @@ alias gco='git checkout '
 alias gdog='git dog'
 alias glog='git l'
 alias glogme='glog --author="<$(git config user.email)>"'
+function gradd(){
+	: ${1?"please supply the github username"}
+	git remote add "$1" "git@github.com:$1/universe.git"
+}
