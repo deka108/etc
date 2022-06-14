@@ -139,3 +139,98 @@ echo "function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}" >> \
 #### Usage
 
 After setting up gitignore for shell, we can generate .gitignore file automatically by running `gi [template]`
+
+## Removing files or redacting contents across git history
+
+Preferred tool: [bfg](https://rtyley.github.io/bfg-repo-cleaner/)
+
+### Installation
+```
+brew install bfg
+```
+
+### Setup
+
+1. Remove the sensitive contents / files from the current repo, create a new commit, and push it.
+2. Clone the bare repo of the repo into `[repo_name].git`
+```
+git clone --mirror [git_repo_address]
+```
+
+### How to Redact Contents
+
+1. Add the redacted contents to a file, eg: `password.txt`. We can use [regex too](https://gist.github.com/w0rd-driven/60779ad557d9fd86331734f01c0f69f0):
+```
+PASSWORD1                       # Replace literal string 'PASSWORD1' with '***REMOVED***' (default)
+PASSWORD2==>examplePass         # replace with 'examplePass' instead
+PASSWORD3==>                    # replace with the empty string
+regex:password=\w+==>password=  # Replace, using a regex
+regex:\r(\n)==>$1               # Replace Windows newlines with Unix newlines
+@mevers303
+```
+2. Run `bfg` on the bare clone.
+```
+bfg --replace-text password.txt [repo_name].git
+```
+3. Run `git reflog` on the bare clone.
+```
+cd [repo_name].git
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+```
+4. Push the rewritten history to remote.
+```
+git push --force
+```
+
+### How to Delete Files
+
+1. Run `bfg` on the filenames that we want to delete
+```
+bfg --delete-files id_{dsa,rsa} [repo_name].git
+```
+2. Same steps as redaction after the `bfg` operation.
+
+
+## Find String Pattern on Current Git branch
+
+```
+git grep -E [text]
+```
+
+Parameters:
+- `-l`: file-only.
+
+## Find and Replace String Pattern on Current Git branch
+[Link to ref](https://remarkablemark.org/blog/2020/07/12/git-grep-replace/)
+
+```
+# find and replace contents
+git grep -l 'original_text' | xargs sed -i '' -E 's/original_text/new_text/g'
+
+# find and replace contents with exception
+git grep -l -e "$MATCH" --and --not -e "$EXCLUDE" | xargs sed -i "" -E "/$EXCLUDE/! s/$MATCH/$REPLACE/g"
+```
+
+Handle whitespaces in filenames:
+```
+[grepping command] | tr \\n \\0 | xargs -0 [xargs cmd]
+```
+
+## Search Git History for a string
+[Link to thread](https://stackoverflow.com/questions/4468361/search-all-of-git-history-for-a-string)
+
+```
+git log -S [text]
+```
+
+`git log` parameters:
+- `-p`: show the diffs
+- `-G`: use regex content
+- `-S`: string content
+- `--branches`: selected branches
+
+## Show the file on a previous commit version
+
+```
+git show [REVISION]:[path/to/file]
+```
