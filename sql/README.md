@@ -39,7 +39,7 @@ docker run -it --rm \
     coleifer/sqlite-web
 ```
 
-<!--## MySQL
+## MySQL
 
 How to Install: `brew install mysql`
 
@@ -49,4 +49,4 @@ How to Install: `brew install mysql`
 
 Tool: [SequelPro](http://www.sequelpro.com/)
 
-How to Install: `brew cask install sequel-pro`-->
+How to Install: `brew cask install sequel-pro`

@@ -1,8 +1,9 @@
 [core]
 	editor = vim
+	excludesFile = /Users/deka.akbar/.gitignore
   
 [user]
-	name = dekauliya
+	name = deka108
 	email = deka108@gmail.com
 
 [filter "lfs"]
@@ -26,3 +27,13 @@
 	rb = "rebase"
 	fl = "reflog"
 	rst = "reset --hard HEAD"
+	e = "commit --allow-empty -m 'Trigger Build'"
+
+[feature]
+    manyFiles = true
+
+[rerere]
+    enabled = true
+
+[github]
+    username = deka108

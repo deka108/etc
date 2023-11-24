@@ -2,9 +2,12 @@
 
 ## MacOS
 ### Terminal
+[Warp](https://www.warp.dev/)
+
+`brew install --cask warp`
+
 [iterm2](https://www.iterm2.com/)
 
-#### Installations
 `brew cask install iterm2`
 
 #### Theming

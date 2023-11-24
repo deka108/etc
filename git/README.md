@@ -122,6 +122,9 @@ Vimdiff: https://vim.rtorr.com/
 https://stackoverflow.com/questions/3471827/how-do-i-list-all-remote-branches-in-git-1-7
 
 ### .gitignore
+```
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+```
 
 #### Choice
 

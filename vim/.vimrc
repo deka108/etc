@@ -22,9 +22,11 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'dense-analysis/ale'
+  Plug 'derekwyatt/vim-scala'
   Plug 'junegunn/fzf'
   Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
-  Plug 'preservim/syntastic'
+  Plug 'vim-scripts/AnsiEsc.vim'
   Plug 'tpope/vim-fugitive'
 call plug#end()

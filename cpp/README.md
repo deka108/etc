@@ -3,6 +3,7 @@
 ## Build Systems and Process Management
 
 Tools:
+- clang++
 - clang
 - cmake
 - make
@@ -17,6 +18,8 @@ brew install doxygen
 brew install llvm
 brew install gdb
 ```
+
+Build: Makefile
 
 ## Testing
 

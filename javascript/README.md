@@ -35,6 +35,7 @@ Preferred Tool: [Visual Studio Code](https://code.visualstudio.com/)
 
 |  Usage  |  Tool  |
 | --- | --- |
+| Simple toolkit for static HTML/JS/CSS | [Eleventy](https://www.11ty.dev/docs/) |
 | Toolkit that produce static HTML/JS/CSS bundles, backend agnostic | [Create React App](https://github.com/facebook/create-react-app) |
 | Toolkit for producng Server Rendering React apps | [Next.js](https://github.com/zeit/next.js/) |
 | Toolkit for mostly static React apps | [Gatsby](https://www.gatsbyjs.org/) |

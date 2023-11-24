@@ -23,3 +23,12 @@ docker run --rm --name ${APP_NAME} \
 ```bash
 docker stop ${CONTAINER_NAME} > /dev/null 2>&1 || true
 ```
+
+## Clean Images
+
+https://docs.docker.com/config/pruning/#prune-everything
+
+```
+docker images -f dangling=true
+docker system prune -a
+```

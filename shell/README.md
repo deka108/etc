@@ -55,3 +55,10 @@ z
 ```
 
 https://stackoverflow.com/questions/12375722/how-do-i-test-in-one-line-if-command-output-contains-a-certain-string
+
+### Check if directory has some strings
+
+https://stackoverflow.com/questions/16956810/how-can-i-find-all-files-containing-a-specific-text-string-on-linux
+```
+grep -Rnw '/path/to/somewhere/' -e 'pattern'
+```
